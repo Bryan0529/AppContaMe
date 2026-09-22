@@ -50,6 +50,34 @@ class MainViewModel(private val context: Context) : ViewModel() {
         )
     }
 
+    // 🟢 FUNCIÓN AÑADIDA: Permite al botón verde guardar los datos en Cloud Firestore
+    fun agregarRegistro(titulo: String, descripcion: String, uid: String) {
+        val nuevoRegistro = Registro(
+            titulo = titulo,
+            descripcion = descripcion,
+            propietarioUid = uid
+        )
+        // Ejecuta el guardado usando la arquitectura asíncrona de Firestore
+        viewModelScope.launch {
+            try {
+                // Llama al método de inserción directa de tu repositorio
+                val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
+                val documento = db.collection("registros").document()
+                val registroConId = nuevoRegistro.copy(id = documento.id)
+
+                documento.set(registroConId)
+                    .addOnSuccessListener {
+                        cargarRegistros() // Recarga automáticamente la lista en pantalla
+                    }
+                    .addOnFailureListener { error ->
+                        _mensaje.value = "Error al guardar en la nube: ${error.message}"
+                    }
+            } catch (e: Exception) {
+                _mensaje.value = "Error en la operación: ${e.message}"
+            }
+        }
+    }
+
     fun cerrarSesion() {
         authRepository.cerrarSesion()
         _usuario.value = null

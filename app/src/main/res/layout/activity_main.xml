@@ -7,25 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnLoginGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión con Google"
-        android:backgroundTint="#4285F4"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
-        android:backgroundTint="#55DB4437"
-        android:textColor="@android:color/white"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp"/>
-
+    <!-- Encabezado de la lista -->
     <TextView
         android:id="@+id/tvHistorial"
         android:layout_width="wrap_content"
@@ -35,10 +17,45 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 
+    <!-- BOTÓN CORREGIDO: Ahora estará visible desde que se abre la app -->
+    <Button
+        android:id="@+id/btnAgregarGastoPrueba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Agregar Gasto de Prueba ($15.00)"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:visibility="visible"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- La lista de gastos ocupará todo el espacio disponible empujando los botones hacia abajo -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRegistros"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- El botón de inicio de sesión queda fijo en la parte inferior de la pantalla -->
+    <Button
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión con Google"
+        android:backgroundTint="#4285F4"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- El botón de cerrar sesión queda fijo abajo en caso de estar activo -->
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:backgroundTint="#DB4437"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"/>
 
 </LinearLayout>

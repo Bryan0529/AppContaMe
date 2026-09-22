@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         // 1. Vincular componentes visuales
         val btnLogin = findViewById<Button>(R.id.btnLoginGoogle)
         val btnLogout = findViewById<Button>(R.id.btnCerrarSesion)
+        val btnAgregarGasto = findViewById<Button>(R.id.btnAgregarGastoPrueba) // 🟢 Vinculación del botón verde
         val rvRegistros = findViewById<RecyclerView>(R.id.rvRegistros)
 
         // 2. Configurar el RecyclerView para la lista de ingresos y gastos
@@ -65,5 +66,22 @@ class MainActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {
             viewModel.cerrarSesion()
         }
-    }
-}
+
+        // 🟢 Evento de clic para el botón verde: Inserta un registro de prueba en Firestore
+        btnAgregarGasto.setOnClickListener {
+            val uidActual = viewModel.usuario.value?.uid
+            if (uidActual != null) {
+                // Genera el registro utilizando la clase exacta que pidió tu docente
+                viewModel.agregarRegistro(
+                    titulo = "Gasto: Almuerzo UMA",
+                    descripcion = "Costo: $15.00 - Compra de comida en cafetería",
+                    uid = uidActual
+                )
+                Toast.makeText(this, "Guardando en Firestore...", Toast.LENGTH_SHORT).show()
+            } else {
+                // Alerta por si el usuario intenta agregar un gasto antes de loguearse
+                Toast.makeText(this, "Por favor, inicia sesión primero", Toast.LENGTH_SHORT).show()
+            }
+        }
+    } // Cierre de onCreate
+} // 🟢 Cierre final de la clase MainActivity

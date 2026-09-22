@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "252590588787",
+    "project_id": "contame-cb765",
+    "storage_bucket": "contame-cb765.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252590588787:android:a2a41bfde3a4e7d6ab3b06",
+        "android_client_info": {
+          "package_name": "com.uma.appcontame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252590588787-vu9hk7mh4cil9ris3sjvfp8l7m57rl73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJwsk5MhrhvfBL8pgfoZSu_LAWeAZOrVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252590588787-vu9hk7mh4cil9ris3sjvfp8l7m57rl73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252590588787:android:a11ae337682e6086ab3b06",
+        "android_client_info": {
+          "package_name": "sv.edu.uma.contame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252590588787-vu9hk7mh4cil9ris3sjvfp8l7m57rl73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJwsk5MhrhvfBL8pgfoZSu_LAWeAZOrVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252590588787-vu9hk7mh4cil9ris3sjvfp8l7m57rl73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
